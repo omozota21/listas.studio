@@ -64,7 +64,6 @@ if __name__ == '__main__':
     # Cosa similar: serialización -marshalling- (similar!!)
     # https://es.wikipedia.org/wiki/Serializaci%C3%B3n)
 
-
     LES = ListaEnlazadaSimple()
     LES.printLES()
 
