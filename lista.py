@@ -12,8 +12,29 @@ class Nodo:
         return f"<{self.datos}>"    
 
 class ListaEnlazadaSimple:
+
     def __init__(self):
         self.head = None
+
+    def insertar(self, nuevo_nodo):
+        if not self.head: # sera el 1er nodo:
+            ## asignar el nodo a la cabeza
+            self.head = nuevo_nodo
+        else:
+            ## obtener el ultimo_nodo
+            ultimo = self.head
+            while ultimo != None:
+                ultimo = ultimo.siguiente
+            ## asignar el nuevo nodo al puntero siguiente del último nodo
+            ultimo.siguiente = nuevo_nodo            
+
+    def printLES(self):
+        if self.head:
+            print(self.head.printNodo())
+            ultimo = self.head            
+            while ultimo != None:
+                ultimo = ultimo.siguiente                
+                ultimo.printNodo()
 
 if __name__ == '__main__':
 
@@ -37,10 +58,22 @@ if __name__ == '__main__':
     # 3. con la expresion del objeto como string: str() ... repr()
     # https://www.digitalocean.com/community/tutorials/python-str-repr-functions  
 
-    print(n1) # ok, existe __str__()
-    print(n2) # ok, existe __str__()   
+    # print(n1) # ok, existe __str__()
+    # print(n2) # ok, existe __str__()   
 
     # Cosa similar: serialización -marshalling- (similar!!)
     # https://es.wikipedia.org/wiki/Serializaci%C3%B3n)
+
+
+    LES = ListaEnlazadaSimple()
+    LES.printLES()
+
+    LES.insertar(n2)  ## ramon
+    LES.printLES()
+
+    LES.insertar(n1)  ## 11
+    LES.printLES()
+
+
 
 
